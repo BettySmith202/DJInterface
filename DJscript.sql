@@ -8,9 +8,9 @@ Create table User ( user_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) NOT
 
 Create table KaraokeFiles ( filename_id INT AUTO_INCREMENT, song_id INT, version VARCHAR(50) NOT NULL, PRIMARY KEY(filename_id, song_id), FOREIGN KEY (song_id) REFERENCES Song(song_id));
 
-Create table PriorityQueue ( user_id INT, filename_id INT NOT NULL, time TIME, cost INT, PRIMARY KEY(user_id, time), FOREIGN KEY (user_id) REFERENCES User(user_id), FOREIGN KEY(filename_id) REFERENCES KaraokeFiles(filename_id) );
+Create table PriorityQueue ( user_id INT, filename_id INT NOT NULL, time DATETIME DEFAULT CURRENT_TIMESTAMP, cost INT, PRIMARY KEY(user_id, time), FOREIGN KEY (user_id) REFERENCES User(user_id), FOREIGN KEY(filename_id) REFERENCES KaraokeFiles(filename_id) );
 
-Create table NormalQueue ( user_id INT, filename_id INT NOT NULL, time TIME, PRIMARY KEY(user_id, time), FOREIGN KEY (user_id) REFERENCES User(user_id), FOREIGN KEY(filename_id) REFERENCES KaraokeFiles(filename_id) );
+Create table NormalQueue ( user_id INT, filename_id INT NOT NULL, time DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(user_id, time), FOREIGN KEY (user_id) REFERENCES User(user_id), FOREIGN KEY(filename_id) REFERENCES KaraokeFiles(filename_id) );
 
 Create table Contributed ( contributed_id INT PRIMARY KEY AUTO_INCREMENT, song_id INT, contributor_id INT, type VARCHAR(20) NOT NULL, FOREIGN KEY(song_id) REFERENCES Song(song_id), FOREIGN KEY(contributor_id) REFERENCES Contributor(contributor_id));
 
