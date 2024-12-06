@@ -6,7 +6,7 @@ Create table Song ( song_id INT PRIMARY KEY AUTO_INCREMENT, title VARCHAR(70) NO
 
 Create table User ( user_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) NOT NULL);
 
-Create table KaraokeFiles ( filename_id INT AUTO_INCREMENT, song_id INT, version VARCHAR(50) NOT NULL, PRIMARY KEY(filename_id, song_id), FOREIGN KEY (song_id) REFERENCES Song(song_id));
+Create table KaraokeFiles ( filename_id INT AUTO_INCREMENT, song_id INT, version VARCHAR(50) NOT NULL, video_embedded_code VARCHAR(500), PRIMARY KEY(filename_id, song_id), FOREIGN KEY (song_id) REFERENCES Song(song_id));
 
 Create table PriorityQueue ( user_id INT, filename_id INT NOT NULL, time DATETIME DEFAULT CURRENT_TIMESTAMP, cost INT, PRIMARY KEY(user_id, time), FOREIGN KEY (user_id) REFERENCES User(user_id), FOREIGN KEY(filename_id) REFERENCES KaraokeFiles(filename_id) );
 
@@ -35,7 +35,7 @@ VALUES
  	('Ghosts', 'Michael Jackson'),
  	('Hole in the Earth', 'Deftones'),
   	('Nothing Else Matters' , 'Metallica'),
-  	('%Don\'t Look Back in Anger%' , 'Oasis'),
+  	('Don\'t Look Back in Anger' , 'Oasis'),
   	('Creep' , 'Radiohead'),
 	('Viva la Vida', 'Coldplay'),
 	('Oops! I did it Again', 'Britney Spears'),
@@ -211,38 +211,38 @@ VALUES
 
 
 INSERT INTO KaraokeFiles
-	(song_id, version)
+	(song_id, version, video_embedded_code)
 VALUES
-	(1, 'Original'),
-	(2, 'Original'),
-	(3, 'Original'),
-	(4, 'Original'),
-	(5, 'Original'),
-	(6, 'Original'),
-	(7, 'Original'),
-	(8, 'Original'),
-	(9, 'Original'),
-	(10, 'Original'),
-	(11,  'Original'),
-	(12, 'Original'),
-	(13, 'Original'),
-	(14, 'Original'),
-	(15, 'Original'),
-	(16, 'Original'),
-	(17, 'Original'),
-	(18, 'Original'),
-	(19, 'Original'),
-	(20, 'Original'),
-	(21, 'Original'),
-	(22, 'Original'),
-	(23, 'Original'),
-	(24, 'Original'),
-	(25, 'Original'),
-	(26, 'Original'),
-	(27, 'Original'),
-	(28, 'Original'),
-	(29, 'Original'),
-	(30, 'Original');
+	(1, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/xzAv3-nHaxI?si=dmHERVJE93-DO8Xx" title="Beat It" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(2, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/pRPvAEPClzc?si=dnmQAe5ClnGiFEtN" title="In the Air Tonight" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(3, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/cptrp_yC4FM?si=7Bxg6gI90BvR1L1j" title="Gasolina" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(4, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/3NY_dEEcY-A?si=_LeF3zhD8FI0k430" title="Just the Way You Are" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(5, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/enRymDBUAjM?si=Vrf_DdYCWVVL0EMC" title="Can You Feel the Love Tonight" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(6, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/ptxNHY-3ikU?si=hZt-qUrDzNJPrPFF" title="Danza Kuduro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(7, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/3SEhPPv_5cg?si=pb2J0CIz1_GBGMld" title="The Cup of Life" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(8, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/eiUAyu_gFsY?si=AsWEsw75-StpC1Lq" title="As it Was" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(9, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/ct9dADDd-ng?si=2UPsRajGQmAx5v9g" title="All I Want For Christmas is You" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(10, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/G6kd4MR7Pnc?si=o_0CpmHwvS-V4rGK" title="El Triste" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(11,  'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/Gz837YWtsU?si=2EmTPWpik2QqL01m" title="No One Noticed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(12, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/bNUoQmWnFLw?si=p8TRX-QcAUcIFU88" title="INVISIBLE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(13, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/7UswGEcTf0m?si=lm_cIcN4Pv6LyeRt" title="Dreaming of You" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(14, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/h7EtAmG08gY?si=VTWGjKxd5P4W5dUV" title="Young and Beautiful" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(15, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/AKCUsOAELTs?si=86D3xeJV7HslFWT0" title="Slomo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(16, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/NzVzxiIawiU?si=Vuyr0aibwpzl7Klw" title="Ghosts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(17, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/aI8MVgf3Vg4?zi-hB_0_XZk5SOpbBB2" title="Hole in the Earth" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(18, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/jEJlv9YcecM?si=a5rnMpmnij3nYRxo" title="Nothing Else Matters" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(19, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/fgt1YxQV8V4si=o2DZt61eAZiwYi-l" title="Don\'t Look Back in Anger" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(20, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/fgt1YxQV8V4?si=33LCnVJ96035jx4X" title="Creep" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(21, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/bMDGH3FDDcc?si-EsxakfB0iw5qDXu7" title="Viva la Vida" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(22, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/wsNRjwagex4?si=gbP6TKiuIPq8PWJp" title="Ooops! I Did it Again" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(23, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/Po2wSJPTBk?si=aUcGTOKEp2hhZUE0" title="Crazy in Love (ft. Jay-Z)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(24, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/t5u0iEKJGFU?si=_yBolESpcmRkWFoq" title="These Boots Were Made For Walking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(25, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/7jL2Ieg-YyYsi=jSYprY3_x29Xk083" title="Candy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(26, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/V1fqzn7pdDg?si=B0qPlFxVVssTuuU7" title="Judas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(27, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/M1nv2cvhQJksi=6iPfTGIbBahxb096" title="Only Girl (In the World)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(28, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/E1yRpGBHX2I?si=Sj4CAe1Qwx6xbPAm" title="Blow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(29, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/ZcLYHg6EpMA?si=rvvRWETlYz0ekrxC" title="Eleanor Rigby" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'),
+	(30, 'Original', '<iframe width="560" height="315" src="https://www.youtube.com/embed/sh2HUoagmt4?si=97IBLKdqPQSfCnHy" title="Riptide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
 
 INSERT INTO Contributed
 	(song_id, contributor_id, type)
@@ -472,3 +472,20 @@ VALUES
 	(30, 140, 'Pianist'),
 	(30, 141, 'Guitarist');
 
+INSERT INTO PriorityQueue
+	(user_id, filename_id, cost)
+VAlUES
+	(1, 1, 20),
+	(2, 2, 10),
+	(3, 16, 12),
+	(4, 17, 8),
+	(5, 18, 30);
+
+INSERT INTO NormalQueue
+	(user_id, filename_id)
+VALUES
+	(6, 8),
+	(7, 28),
+	(8, 21),
+	(9, 4),
+	(10, 25);
